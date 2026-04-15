@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Unibuddy</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #4F46E5;
+      --primary-light: #EEF2FF;
+      --primary-mid: #C7D2FE;
+      --accent: #06B6D4;
+      --text-primary: #111827;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --border: #E5E7EB;
+      --surface: #F9FAFB;
+      --white: #FFFFFF;
+      --success: #059669;
+      --success-bg: #D1FAE5;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-primary);
+      background: var(--surface);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .logo-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+    .header-badge {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--primary-mid);
+    }
+
+    /* ── HERO BANNER ── */
+    .hero {
+      background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+      padding: 60px 2rem 50px;
+      text-align: center;
+      color: white;
+    }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    .hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      margin: 0 auto 20px;
+    }
+    .hero-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #6EE7B7; }
+
+    /* ── LAYOUT ── */
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 2rem 80px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 720px) {
+      .page-wrapper { grid-template-columns: 1fr; padding: 28px 1.25rem 60px; }
+      .sidebar { display: none; }
+      .hero h1 { font-size: 26px; }
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+    }
+    .sidebar-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .toc {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .toc a {
+      display: block;
+      padding: 7px 12px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      border-left: 2px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .toc a:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+      border-left-color: var(--primary);
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content { min-width: 0; }
+
+    .section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 20px;
+      scroll-margin-top: 90px;
+    }
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .section-num {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      border-radius: 8px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .section h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    p { color: var(--text-secondary); margin-bottom: 12px; font-size: 15px; }
+    p:last-child { margin-bottom: 0; }
+
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 20px 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+    ul li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin-top: 9px;
+    }
+
+    /* ── NOTICE BOXES ── */
+    .notice {
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+      display: flex;
+      gap: 12px;
+      margin: 16px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .notice-icon { font-size: 18px; min-width: 20px; }
+    .notice p { margin: 0; font-size: 14px; }
+    .notice-warning {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      color: #92400E;
+    }
+    .notice-warning p { color: #92400E; }
+    .notice-info {
+      background: var(--primary-light);
+      border: 1px solid var(--primary-mid);
+      color: #3730A3;
+    }
+    .notice-info p { color: #3730A3; }
+    .notice-success {
+      background: var(--success-bg);
+      border: 1px solid #6EE7B7;
+      color: #065F46;
+    }
+    .notice-success p { color: #065F46; }
+
+    /* ── RIGHTS GRID ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 540px) { .rights-grid { grid-template-columns: 1fr; } }
+    .right-card {
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+    }
+    .right-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .right-card p { font-size: 13px; margin: 0; }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-top: 12px;
+      color: white;
+    }
+    .contact-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      min-width: 48px;
+    }
+    .contact-label { font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 4px; }
+    .contact-email {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+    }
+    .contact-email:hover { text-decoration: underline; }
+
+    /* ── CONSENT BANNER ── */
+    .consent-section {
+      background: linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%);
+      border: 1px solid #6EE7B7;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .consent-icon { font-size: 32px; margin-bottom: 12px; }
+    .consent-section h2 { font-size: 18px; font-weight: 700; color: #065F46; margin-bottom: 10px; }
+    .consent-section p { color: #047857; max-width: 520px; margin: 0 auto; font-size: 15px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 28px 2rem;
+      text-align: center;
+    }
+    .footer-inner { max-width: 900px; margin: 0 auto; }
+    .footer-logo { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+    footer p { font-size: 13px; color: var(--text-muted); margin: 0; }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C9.243 2 7 4.243 7 7v2H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2v-9a2 2 0 00-2-2h-2V7c0-2.757-2.243-5-5-5zm0 2c1.654 0 3 1.346 3 3v2H9V7c0-1.654 1.346-3 3-3zm1 11.723V17h-2v-1.277a1.994 1.994 0 01-1-1.723 2 2 0 114 0 1.994 1.994 0 01-1 1.723z"/>
+          </svg>
+        </div>
+        <span class="logo-name">Unibuddy</span>
+      </a>
+      <span class="header-badge">Privacy Policy</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Legal Documentation</div>
+    <h1>Privacy Policy</h1>
+    <p>We're committed to transparency. Here's exactly how we handle your data on Unibuddy.</p>
+    <div class="hero-meta">
+      <span class="dot"></span>
+      Effective Date: [Insert Date]
+    </div>
+  </div>
+
+  <!-- PAGE BODY -->
+  <div class="page-wrapper">
+
+    <!-- SIDEBAR TOC -->
+    <aside class="sidebar">
+      <div class="sidebar-title">On this page</div>
+      <ul class="toc">
+        <li><a href="#introduction">1. Introduction</a></li>
+        <li><a href="#info-we-collect">2. Information We Collect</a></li>
+        <li><a href="#how-we-use">3. How We Use Your Info</a></li>
+        <li><a href="#campus-shop">4. Campus Shop Disclaimer</a></li>
+        <li><a href="#data-sharing">5. Data Sharing</a></li>
+        <li><a href="#security">6. Data Storage & Security</a></li>
+        <li><a href="#user-rights">7. User Rights</a></li>
+        <li><a href="#content">8. Content Responsibility</a></li>
+        <li><a href="#events">9. Events Information</a></li>
+        <li><a href="#children">10. Children's Privacy</a></li>
+        <li><a href="#changes">11. Changes to Policy</a></li>
+        <li><a href="#contact">12. Contact Us</a></li>
+        <li><a href="#consent">13. Consent</a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+      <!-- 1. Introduction -->
+      <div class="section" id="introduction">
+        <div class="section-header">
+          <div class="section-num">1</div>
+          <h2>Introduction</h2>
+        </div>
+        <p>Welcome to <strong>Unibuddy</strong> — your campus companion application designed to help students connect, trade, discover events, and navigate college life with ease.</p>
+        <p>We value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you use our application. Please read it carefully.</p>
+        <div class="notice notice-info">
+          <span class="notice-icon">ℹ</span>
+          <p>By accessing or using Unibuddy, you acknowledge that you have read and understood this Privacy Policy. If you do not agree with its terms, please discontinue use of the application.</p>
+        </div>
+      </div>
+
+      <!-- 2. Information We Collect -->
+      <div class="section" id="info-we-collect">
+        <div class="section-header">
+          <div class="section-num">2</div>
+          <h2>Information We Collect</h2>
+        </div>
+
+        <h3>2.1 Personal Information</h3>
+        <p>When you register and use Unibuddy, we may collect the following personal details:</p>
+        <ul>
+          <li>Full name</li>
+          <li>Email address (college/university email preferred)</li>
+          <li>Course or program of study</li>
+          <li>College or university affiliation</li>
+        </ul>
+
+        <h3>2.2 User-Generated Content</h3>
+        <p>Content you create or submit within the app, including:</p>
+        <ul>
+          <li>Items listed in Campus Shop (buy/sell posts, descriptions, photos)</li>
+          <li>Lost &amp; Found listings and related details</li>
+          <li>Event-related participation data or submissions</li>
+        </ul>
+
+        <h3>2.3 Usage Data</h3>
+        <p>We also automatically collect certain technical information:</p>
+        <ul>
+          <li>Login activity and session timestamps</li>
+          <li>App interactions and feature usage patterns</li>
+          <li>Basic, non-sensitive device information (e.g., OS type, app version)</li>
+        </ul>
+      </div>
+
+      <!-- 3. How We Use Info -->
+      <div class="section" id="how-we-use">
+        <div class="section-header">
+          <div class="section-num">3</div>
+          <h2>How We Use Your Information</h2>
+        </div>
+        <p>We use the data we collect solely to improve your experience and operate the application effectively. Specifically:</p>
+        <ul>
+          <li>Provide and maintain core application functionality</li>
+          <li>Enable Campus Shop to connect buyers and sellers within your campus</li>
+          <li>Manage and display Lost &amp; Found listings</li>
+          <li>Display, manage, and promote campus events</li>
+          <li>Improve user experience and optimize app performance</li>
+          <li>Send important notifications including updates, announcements, and alerts</li>
+        </ul>
+      </div>
+
+      <!-- 4. Campus Shop -->
+      <div class="section" id="campus-shop">
+        <div class="section-header">
+          <div class="section-num">4</div>
+          <h2>Campus Shop Disclaimer</h2>
+        </div>
+        <p>The Campus Shop feature is designed to connect students within the same campus community. Please be aware of the following:</p>
+        <ul>
+          <li>Unibuddy acts <strong>only as a platform</strong> connecting buyers and sellers — we are not a retailer or marketplace operator</li>
+          <li>We do <strong>not</strong> own, sell, verify, or endorse any listed items</li>
+          <li>We are <strong>not responsible</strong> for transactions, payments, disputes, or any loss arising between users</li>
+          <li>Users are strongly advised to transact safely and exercise their own judgment</li>
+        </ul>
+        <div class="notice notice-warning">
+          <span class="notice-icon">⚠</span>
+          <p>Always meet in safe, public locations on campus when completing transactions. Unibuddy is not liable for any disputes arising from Campus Shop interactions.</p>
+        </div>
+      </div>
+
+      <!-- 5. Data Sharing -->
+      <div class="section" id="data-sharing">
+        <div class="section-header">
+          <div class="section-num">5</div>
+          <h2>Data Sharing and Third Parties</h2>
+        </div>
+        <p>We do <strong>not</strong> sell, rent, or trade your personal data to third parties for commercial purposes.</p>
+        <p>We may share data only in limited circumstances:</p>
+        <ul>
+          <li><strong>Service providers</strong> — such as Google, for authentication (sign-in) and secure database storage</li>
+          <li><strong>Legal authorities</strong> — only if required by applicable law, court order, or regulatory requirement</li>
+        </ul>
+        <div class="notice notice-success">
+          <span class="notice-icon">✓</span>
+          <p>Your personal data is never sold to advertisers or third-party marketing platforms.</p>
+        </div>
+      </div>
+
+      <!-- 6. Security -->
+      <div class="section" id="security">
+        <div class="section-header">
+          <div class="section-num">6</div>
+          <h2>Data Storage and Security</h2>
+        </div>
+        <p>We take reasonable technical and organizational measures to protect your data from unauthorized access, loss, or disclosure. These include:</p>
+        <ul>
+          <li>Secure authentication mechanisms to protect your account</li>
+          <li>Encrypted data transmission over HTTPS/TLS protocols</li>
+          <li>Controlled access to databases and stored information</li>
+        </ul>
+        <div class="notice notice-warning">
+          <span class="notice-icon">⚠</span>
+          <p>Please note that no system is 100% secure. While we strive to protect your data, we cannot guarantee absolute security and encourage you to use strong passwords and keep your login credentials confidential.</p>
+        </div>
+      </div>
+
+      <!-- 7. User Rights -->
+      <div class="section" id="user-rights">
+        <div class="section-header">
+          <div class="section-num">7</div>
+          <h2>User Rights</h2>
+        </div>
+        <p>You have the following rights with respect to your personal data:</p>
+        <div class="rights-grid">
+          <div class="right-card">
+            <div class="right-card-title">Access</div>
+            <p>Request a copy of the personal data we hold about you.</p>
+          </div>
+          <div class="right-card">
+            <div class="right-card-title">Correction</div>
+            <p>Update or correct inaccurate information in your profile.</p>
+          </div>
+          <div class="right-card">
+            <div class="right-card-title">Deletion</div>
+            <p>Delete your account and all associated personal data.</p>
+          </div>
+          <div class="right-card">
+            <div class="right-card-title">Content Removal</div>
+            <p>Request removal of specific content you have posted.</p>
+          </div>
+        </div>
+        <p style="margin-top: 20px;">To exercise any of these rights, please contact us using the details in Section 12.</p>
+      </div>
+
+      <!-- 8. Content Responsibility -->
+      <div class="section" id="content">
+        <div class="section-header">
+          <div class="section-num">8</div>
+          <h2>Content Responsibility</h2>
+        </div>
+        <p>Users are solely responsible for the accuracy, legality, and appropriateness of content they post on Unibuddy. We reserve the right to review and remove content that:</p>
+        <ul>
+          <li>Violates our Terms of Service or community policies</li>
+          <li>Is misleading, fraudulent, or deceptive</li>
+          <li>Is harmful, offensive, abusive, or otherwise inappropriate</li>
+        </ul>
+      </div>
+
+      <!-- 9. Events -->
+      <div class="section" id="events">
+        <div class="section-header">
+          <div class="section-num">9</div>
+          <h2>Events Information</h2>
+        </div>
+        <p>Event data displayed within the Unibuddy app may be provided by colleges, student groups, clubs, or individual users. While we strive to keep event information current and accurate:</p>
+        <ul>
+          <li>We do not guarantee the accuracy or completeness of event listings</li>
+          <li>We are not responsible for cancellations, changes, or inaccuracies in third-party event data</li>
+          <li>We encourage users to verify event details through official college channels</li>
+        </ul>
+      </div>
+
+      <!-- 10. Children's Privacy -->
+      <div class="section" id="children">
+        <div class="section-header">
+          <div class="section-num">10</div>
+          <h2>Children's Privacy</h2>
+        </div>
+        <p>Unibuddy is intended exclusively for college and university students. The application is <strong>not directed at children under the age of 13</strong>.</p>
+        <p>We do not knowingly collect personal data from children under 13. If we discover that a child under 13 has provided us with personal information, we will delete it immediately. If you believe a child has used our service, please contact us right away.</p>
+      </div>
+
+      <!-- 11. Changes -->
+      <div class="section" id="changes">
+        <div class="section-header">
+          <div class="section-num">11</div>
+          <h2>Changes to This Policy</h2>
+        </div>
+        <p>We may revise this Privacy Policy periodically to reflect changes in our practices, technology, legal requirements, or other factors. When we do:</p>
+        <ul>
+          <li>The updated policy will be posted within the Unibuddy application</li>
+          <li>The "Effective Date" at the top of this page will be updated accordingly</li>
+          <li>For significant changes, we may notify you via in-app notification or email</li>
+        </ul>
+        <p>Continued use of Unibuddy after changes are posted constitutes your acceptance of the revised policy.</p>
+      </div>
+
+      <!-- 12. Contact -->
+      <div class="section" id="contact">
+        <div class="section-header">
+          <div class="section-num">12</div>
+          <h2>Contact Us</h2>
+        </div>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how your data is handled, please reach out to our team:</p>
+        <div class="contact-card">
+          <div class="contact-avatar">✉</div>
+          <div>
+            <div class="contact-label">Email us at</div>
+            <a href="mailto:theunisolve@gmail.com" class="contact-email">theunisolve@gmail.com</a>
+          </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 14px;">We aim to respond to all inquiries within 5–7 business days.</p>
+      </div>
+
+      <!-- 13. Consent -->
+      <div class="consent-section" id="consent">
+        <div class="consent-icon">✅</div>
+        <h2>Your Consent</h2>
+        <p>By registering for or continuing to use Unibuddy, you confirm that you have read, understood, and agree to this Privacy Policy in its entirety.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Unibuddy</div>
+      <p>
+        &copy; 2026 Unibuddy &nbsp;·&nbsp;
+        <a href="mailto:theunisolve@gmail.com">theunisolve@gmail.com</a> &nbsp;·&nbsp;
+        All rights reserved
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
