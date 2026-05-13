@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how to permanently delete your UniBuddy account and understand what data is removed in the process." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Account Deletion – UniBuddy" />
+  <meta property="og:description" content="Steps to delete your UniBuddy account and information about data removal." />
+  <meta property="og:type" content="website" />
+  <title>Account Deletion – UniBuddy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Tokens ─────────────────────────────────────────────── */
+    :root {
+      --navy:    #0f1b35;
+      --indigo:  #2541b2;
+      --violet:  #4f46e5;
+      --sky:     #e8eeff;
+      --amber:   #f59e0b;
+      --rose:    #ef4444;
+      --rose-bg: #fff1f2;
+      --surface: #ffffff;
+      --border:  #e2e8f0;
+      --muted:   #64748b;
+      --text:    #1e293b;
+      --radius:  14px;
+      --shadow:  0 4px 24px rgba(37,65,178,.08);
+    }
+
+    /* ─── Reset ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f4f6fb;
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── Background texture ─────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 10% 0%, rgba(79,70,229,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 90% 100%, rgba(37,65,178,.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── Layout wrapper ─────────────────────────────────────── */
+    .page { position: relative; z-index: 1; flex: 1; }
+
+    /* ─── Header / Hero ──────────────────────────────────────── */
+    header {
+      background: var(--navy);
+      padding: 64px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0; right: 0;
+      height: 48px;
+      background: #f4f6fb;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      padding: 8px 18px;
+      margin-bottom: 28px;
+      animation: fadeDown .6s ease both;
+    }
+    .logo-icon {
+      width: 28px; height: 28px;
+      background: var(--violet);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+    }
+    .logo-icon svg { width: 16px; height: 16px; fill: #fff; }
+    .logo-label {
+      font-family: 'Syne', sans-serif;
+      font-size: .9rem;
+      color: #cbd5e1;
+      letter-spacing: .04em;
+    }
+
+    header h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      animation: fadeDown .7s .1s ease both;
+    }
+    header h1 span { color: #818cf8; }
+
+    header p {
+      margin-top: 16px;
+      color: #94a3b8;
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin-inline: auto;
+      animation: fadeDown .7s .2s ease both;
+    }
+
+    /* ─── Main container ─────────────────────────────────────── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 20px 72px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ─── Cards ──────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      animation: fadeUp .6s ease both;
+    }
+    .card:nth-child(1) { animation-delay: .15s; }
+    .card:nth-child(2) { animation-delay: .25s; }
+    .card:nth-child(3) { animation-delay: .35s; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .card-icon svg { width: 22px; height: 22px; }
+    .card-icon.blue  { background: var(--sky); }
+    .card-icon.blue svg { color: var(--violet); }
+    .card-icon.rose  { background: var(--rose-bg); }
+    .card-icon.rose svg  { color: var(--rose); }
+    .card-icon.amber { background: #fffbeb; }
+    .card-icon.amber svg { color: var(--amber); }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .card-subtitle {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ─── Steps ──────────────────────────────────────────────── */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 18px 0;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 52px;
+      bottom: -4px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .step-num {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--sky);
+      border: 2px solid var(--violet);
+      color: var(--violet);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: .95rem;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      transition: background .25s, color .25s, transform .2s;
+      position: relative;
+      z-index: 1;
+    }
+    .step:hover .step-num {
+      background: var(--violet);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .step-body strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .step-body span {
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    /* ─── Pill tag ────────────────────────────────────────────── */
+    .pill {
+      display: inline-block;
+      background: var(--sky);
+      color: var(--violet);
+      font-weight: 600;
+      font-size: .78rem;
+      letter-spacing: .03em;
+      border-radius: 6px;
+      padding: 2px 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ─── Data list ──────────────────────────────────────────── */
+    .data-list { display: flex; flex-direction: column; gap: 14px; }
+    .data-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fafbff;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .data-item:hover {
+      border-color: #c7d2fe;
+      box-shadow: 0 2px 12px rgba(79,70,229,.08);
+      transform: translateX(3px);
+    }
+    .data-item-icon {
+      margin-top: 2px;
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+    }
+    .data-item.permanent .data-item-icon { color: var(--rose); }
+    .data-item.cached   .data-item-icon  { color: var(--amber); }
+
+    .data-item-text strong {
+      display: block;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .data-item-text span {
+      font-size: .83rem;
+      color: var(--muted);
+    }
+
+    /* ─── Support card ────────────────────────────────────────── */
+    .support-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .support-text p { color: var(--muted); font-size: .95rem; margin-top: 4px; }
+
+    .support-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: .9rem;
+      white-space: nowrap;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(15,27,53,.25);
+    }
+    .support-link:hover {
+      background: var(--violet);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79,70,229,.35);
+    }
+    .support-link svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ─── Notice banner ──────────────────────────────────────── */
+    .notice {
+      background: var(--rose-bg);
+      border: 1px solid #fecaca;
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: .88rem;
+      color: #991b1b;
+      margin-top: 20px;
+    }
+    .notice svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; fill: #ef4444; }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      text-align: center;
+      padding: 28px 20px;
+      color: #64748b;
+      font-size: .85rem;
+    }
+    footer strong { color: #94a3b8; }
+    footer .dot { margin: 0 8px; }
+
+    /* ─── Animations ─────────────────────────────────────────── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 540px) {
+      .card { padding: 26px 20px; }
+      .support-inner { flex-direction: column; align-items: flex-start; }
+      .support-link { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- ── Header ───────────────────────────────────────────── -->
+    <header>
+      <div class="logo-badge">
+        <div class="logo-icon">
+          <!-- Graduation-cap icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm-9 9.18V15l9 5 9-5v-2.82l-9 4.91-9-4.91z"/>
+          </svg>
+        </div>
+        <span class="logo-label">UniBuddy</span>
+      </div>
+
+      <h1>Account <span>Deletion</span></h1>
+      <p>Permanently remove your account and associated data directly from the app — no forms, no waiting.</p>
+    </header>
+
+    <!-- ── Main ─────────────────────────────────────────────── -->
+    <main>
+
+      <!-- Steps card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+            </svg>
+          </div>
+          <div>
+            <div class="card-title">How to Delete Your Account</div>
+            <div class="card-subtitle">Follow these steps inside the app</div>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <strong>Open the UniBuddy app</strong>
+              <span>Launch the app on your device and sign in if prompted.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <strong>Go to <em>More</em> <span class="pill">···</span></strong>
+              <span>Find the "More" tab in the bottom navigation bar.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <strong>Tap "Delete Account"</strong>
+              <span>Scroll to the account settings section and tap the delete option.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <strong>Confirm deletion</strong>
+              <span>Read the confirmation prompt and confirm. This action cannot be undone.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data deletion card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon rose">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/>
+              <path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="card-title">What Gets Deleted</div>
+            <div class="card-subtitle">Data removed when your account is deleted</div>
+          </div>
+        </div>
+
+        <div class="data-list">
+          <div class="data-item permanent">
+            <svg class="data-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+            </svg>
+            <div class="data-item-text">
+              <strong>Firebase Authentication Account</strong>
+              <span>Your login credentials and authentication record are permanently removed.</span>
+            </div>
+          </div>
+          <div class="data-item permanent">
+            <svg class="data-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
+            </svg>
+            <div class="data-item-text">
+              <strong>User Profile Data</strong>
+              <span>Your name, bio, university details, and profile photo are deleted.</span>
+            </div>
+          </div>
+          <div class="data-item permanent">
+            <svg class="data-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+            <div class="data-item-text">
+              <strong>User-Generated Content</strong>
+              <span>Posts, comments, and other content associated with your account may also be removed.</span>
+            </div>
+          </div>
+          <div class="data-item cached">
+            <svg class="data-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+            </svg>
+            <div class="data-item-text">
+              <strong>Cached Local App Data <span class="pill" style="background:#fffbeb;color:#b45309;">Temporary</span></strong>
+              <span>Some app data cached on your device may remain until you uninstall the app.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+          <span><strong>This action is irreversible.</strong> Once your account is deleted, your data cannot be recovered. Please ensure you've saved anything you may need before proceeding.</span>
+        </div>
+      </div>
+
+      <!-- Support card -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="card-title">Need Help?</div>
+            <div class="card-subtitle">Contact our support team for deletion-related queries</div>
+          </div>
+        </div>
+
+        <div class="support-inner">
+          <div class="support-text">
+            <p>Having trouble deleting your account, or have questions about your data? Reach out and we'll respond within 48 hours.</p>
+          </div>
+          <a href="mailto:theunisolve@gmail.com" class="support-link">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            Email Support
+          </a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ── Footer ────────────────────────────────────────────── -->
+  <footer>
+    <strong>UniBuddy</strong>
+    <span class="dot">·</span>
+    Account Deletion Policy
+    <span class="dot">·</span>
+    &copy; <span id="yr"></span>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
