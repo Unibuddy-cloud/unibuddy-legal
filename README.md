@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Unibuddy Legal</title>
+  <title>Collaj Legal</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -51,8 +51,8 @@
 <body>
 
   <div class="container">
-    <h1>Unibuddy Legal</h1>
-    <p>Official legal documents for the Unibuddy app</p>
+    <h1>Collaj Legal</h1>
+    <p>Official legal documents for the Collaj app</p>
 
     <div class="links">
       <a href="privacy.html">Privacy Policy</a>
@@ -62,7 +62,7 @@
   </div>
 
   <footer>
-    © 2026 Unibuddy. All rights reserved.
+    © 2026 Collaj. All rights reserved.
   </footer>
 
 </body>
